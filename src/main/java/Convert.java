@@ -93,6 +93,10 @@ public class Convert {
             os.close();
         } catch (Exception e) {
             System.out.println("Problem when exporting " + inSVG + " to " + out + "!\n" + e.toString());
+            e.printStackTrace();
+            if( e instanceof org.apache.batik.transcoder.TranscoderException )
+                ( (org.apache.batik.transcoder.TranscoderException) e ).getException().printStackTrace();
+            System.exit( -1 );
         }
     }
 }
