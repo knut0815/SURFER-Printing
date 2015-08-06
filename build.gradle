@@ -2,18 +2,19 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    compile 'org.apache.xmlgraphics:xmlgraphics-commons:2.0.1'
-    compile 'org.apache.xmlgraphics:fop:2.0'
-    compile 'org.apache.xmlgraphics:batik-codec:1.8'
-    compile 'org.apache.xmlgraphics:batik-transcoder:1.8'
-    compile 'org.scilab.forge:jlatexmath:1.0.2'
+    compile 'org.apache.xmlgraphics:fop:1.0'
+    compile 'org.apache.xmlgraphics:batik-bridge:1.7'
+    compile 'org.apache.xmlgraphics:batik-codec:1.7'
+    compile 'org.apache.xmlgraphics:batik-transcoder:1.7'
     compile 'org.slf4j:slf4j-api:1.7.10'
     runtime 'ch.qos.logback:logback-classic:1.0.13'
     testCompile 'junit:junit:4.12'
+    compile fileTree( dir: 'libs', includes: ['*.jar'] )
 }
 
 task wrapper(type: Wrapper) {
